@@ -1,0 +1,2 @@
+pip:
+    pkg.installed

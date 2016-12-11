@@ -1,0 +1,4 @@
+base:
+    '*':
+        - fish.virtualfish
+        - vim

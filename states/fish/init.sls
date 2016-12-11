@@ -1,0 +1,2 @@
+fish:
+    pkg.installed
