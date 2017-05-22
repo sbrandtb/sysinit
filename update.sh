@@ -40,7 +40,7 @@ try_manual_install_salt() {
 install_salt() {
     info "Installing Salt Minion..."
 
-    curl -L https://bootstrap.saltstack.com -o install_salt.sh && sudo sh install_salt.sh -P -M
+    curl -L https://bootstrap.saltstack.com -o install_salt.sh && sudo sh install_salt.sh
     if [[ $? -ne 0 ]] ; then
         info "Installing Salt by official script failed, trying manual install..."
         try_manual_install_salt || fail "Could not install salt minion."
