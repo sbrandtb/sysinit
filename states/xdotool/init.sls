@@ -1,0 +1,2 @@
+xdotool:
+    pkg.installed
