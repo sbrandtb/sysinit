@@ -39,6 +39,7 @@ try_manual_install_salt() {
 
 install_salt() {
     info "Installing Salt Minion..."
+    sudo apt install curl
 
     curl -L https://bootstrap.saltstack.com/develop -o install_salt.sh && sudo sh install_salt.sh
     if [[ $? -ne 0 ]] ; then
