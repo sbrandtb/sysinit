@@ -50,9 +50,28 @@ install_salt() {
 
 run_salt() {
     info "Running Salt..."
-
-    sudo salt-call --local --file-root states state.apply pillar="{\"user\": \"`whoami`\"}"
+    SALT_OPTS="--local --file-root states state.apply pillar={\"user\":\"`whoami`\"}"
+    if $DRY_RUN ; then
+         SALT_OPTS="$SALT_OPTS test=True"
+    fi
+    sudo salt-call $SALT_OPTS
 }
+
+
+DRY_RUN=false
+
+while getopts "d" opt; do
+    case "$opt" in
+    d)
+        DRY_RUN=true
+	info "Dry run..."
+        ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+[ "$1" = "--" ] && shift
 
 
 if ! `which salt-call 2>&1 > /dev/null` ; then
