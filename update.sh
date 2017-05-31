@@ -41,7 +41,7 @@ install_salt() {
     info "Installing Salt Minion..."
     sudo apt install curl
 
-    curl -L https://bootstrap.saltstack.com/develop -o install_salt.sh && sudo sh install_salt.sh
+    curl -L https://bootstrap.saltstack.com/develop -o /tmp/install_salt.sh && sudo sh /tmp/install_salt.sh
     if [[ $? -ne 0 ]] ; then
         info "Installing Salt by official script failed, trying manual install..."
         try_manual_install_salt || fail "Could not install salt minion."
