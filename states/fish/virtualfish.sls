@@ -1,5 +1,6 @@
 include:
     - fish
+    - pip
     - virtualenv
 
 
