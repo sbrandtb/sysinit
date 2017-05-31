@@ -3,4 +3,7 @@ fish:
 
 
 /home/{{ pillar.user }}/.config/fish/conf.d/:
-    file.directory
+    file.directory:
+        - makedirs: True
+        - user: {{ pillar.user }}
+        - group: {{ pillar.user }}
