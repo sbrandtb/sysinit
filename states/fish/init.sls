@@ -22,3 +22,11 @@ set_visual:
         - shell: /usr/bin/fish
         - runas: {{ pillar.user }}
         - unless: test "$VISUAL" = "vim"
+
+
+fish_functions:
+    file.recurse:
+        - name: /home/{{ pillar.user }}/.config/fish/functions/
+        - source: salt://fish/files/functions/
+        - user: {{ pillar.user }}
+        - group: {{ pillar.user }}
