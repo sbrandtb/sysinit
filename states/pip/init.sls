@@ -1,2 +1,2 @@
-pip:
+python-pip:
     pkg.installed
