@@ -7,3 +7,10 @@ fish:
         - makedirs: True
         - user: {{ pillar.user }}
         - group: {{ pillar.user }}
+
+
+set_login_shell:
+    module.run:
+        - name: user.chshell
+        - m_name: {{ pillar.user }}
+        - shell: /usr/bin/fish
