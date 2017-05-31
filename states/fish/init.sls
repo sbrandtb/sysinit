@@ -14,3 +14,11 @@ set_login_shell:
         - name: user.chshell
         - m_name: {{ pillar.user }}
         - shell: /usr/bin/fish
+
+
+set_visual:
+    cmd.run:
+        - name: set -Ux VISUAL vim
+        - shell: /usr/bin/fish
+        - runas: {{ pillar.user }}
+        - unless: test "$VISUAL" = "vim"
