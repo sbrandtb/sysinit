@@ -11,9 +11,9 @@ fish:
 
 set_login_shell:
     module.run:
-        - name: user.chshell
-        - m_name: {{ pillar.user }}
-        - shell: /usr/bin/fish
+        - user.chshell:
+            - name: {{ pillar.user }}
+            - shell: /usr/bin/fish
 
 
 set_visual:
