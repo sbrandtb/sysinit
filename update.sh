@@ -65,7 +65,7 @@ while getopts "d" opt; do
     case "$opt" in
     d)
         DRY_RUN=true
-	info "Dry run..."
+        info "Dry run..."
         ;;
     esac
 done
