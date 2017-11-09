@@ -1,7 +1,6 @@
 base:
     '*':
         - fish.virtualfish
-        - git
         - htop
         - salt.minion
         - tmux
@@ -12,3 +11,7 @@ base:
         - keepass2
         - restview
         - telegram
+    'roles:dev':
+        - match: grain
+        - docker
+        - git
