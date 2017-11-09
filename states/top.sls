@@ -6,3 +6,8 @@ base:
         - salt.minion
         - tmux
         - vim
+    'roles:ui':
+        - match: grain
+        - keepass2
+        - restview
+        - telegram
