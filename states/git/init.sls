@@ -7,3 +7,10 @@ git_config_push:
         - name: push.default
         - global: True
         - value: current
+
+
+git_config_pull:
+    git.config_set:
+        - name: pull.rebase
+        - global: True
+        - value: "true"
