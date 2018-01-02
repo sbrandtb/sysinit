@@ -30,3 +30,11 @@ fish_functions:
         - source: salt://fish/files/functions/
         - user: {{ pillar.user }}
         - group: {{ pillar.user }}
+
+
+aliases:
+    file.managed:
+        - name: /home/{{ pillar.user }}/.config/fish/conf.d/aliases.fish
+        - contents: alias ccat='pygmentize -O style=native -f console16m -g'
+        - user: {{ pillar.user }}
+        - group: {{ pillar.user }}
