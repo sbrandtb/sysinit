@@ -14,4 +14,5 @@ base:
     'roles:dev':
         - match: grain
         - docker
+        - mssql-cli
         - git
