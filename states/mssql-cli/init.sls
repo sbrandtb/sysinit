@@ -12,6 +12,6 @@ mssql-cli:
         - user: {{ pillar.user }}
     file.managed:
         - name: /home/{{ pillar.user }}/.config/fish/conf.d/mssql-cli.fish
-        - contents: set -x PATH /home/sebastian/.virtualenvs/mssql-cli/bin $PATH
+        - contents: set -x PATH $PATH /home/sebastian/.virtualenvs/mssql-cli/bin
         - user: {{ pillar.user }}
         - group: {{ pillar.user }}

@@ -13,6 +13,6 @@ restview:
         - user: {{ pillar.user }}
     file.managed:
         - name: /home/{{ pillar.user }}/.config/fish/conf.d/restview.fish
-        - contents: set -x PATH /home/sebastian/.virtualenvs/restview/bin $PATH
+        - contents: set -x PATH $PATH /home/sebastian/.virtualenvs/restview/bin
         - user: {{ pillar.user }}
         - group: {{ pillar.user }}
