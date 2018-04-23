@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eo pipefail
+
 
 fail() {
     echo -e "\e[31m$1\e[0m"
