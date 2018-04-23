@@ -17,35 +17,11 @@ get_release_info() {
 }
 
 
-try_manual_install_salt() {
-    platform=`get_release_info DISTRIB_ID`
-    codename=`get_release_info DISTRIB_CODENAME`
-    release=`get_release_info DISTRIB_RELEASE`
-
-    if [[ "$platform" == "ubuntu" && "$codename" == "yakkety" ]] ; then
-        info "Salt does not support yakkety (yet). Using xenial repository"
-        release="16.04"
-        codename="xenial"
-    else
-        (exit 1)
-    fi
-
-    wget -O - https://repo.saltstack.com/apt/$platform/$release/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add - && \
-    sudo bash -c "echo 'deb http://repo.saltstack.com/apt/$platform/$release/amd64/latest $codename main' > /etc/apt/sources.list.d/saltstack.list" && \
-    sudo apt-get update && \
-    sudo apt-get install -y salt-minion
-}
-
-
 install_salt() {
     info "Installing Salt Minion..."
     sudo apt install curl
 
     curl -L https://bootstrap.saltstack.com/develop -o /tmp/install_salt.sh && sudo sh /tmp/install_salt.sh
-    if [[ $? -ne 0 ]] ; then
-        info "Installing Salt by official script failed, trying manual install..."
-        try_manual_install_salt || fail "Could not install salt minion."
-    fi
 }
 
 
