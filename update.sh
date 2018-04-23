@@ -51,7 +51,7 @@ install_salt() {
 
 run_salt() {
     info "Running Salt..."
-    SALT_OPTS="--local --file-root states state.apply pillar={\"user\":\"`whoami`\"}"
+    SALT_OPTS="--local --file-root states state.apply $STATE pillar={\"user\":\"`whoami`\"}"
     if $DRY_RUN ; then
          SALT_OPTS="$SALT_OPTS test=True"
     fi
@@ -60,12 +60,17 @@ run_salt() {
 
 
 DRY_RUN=false
+STATE=""
 
-while getopts "d" opt; do
+while getopts "ds:" opt; do
     case "$opt" in
     d)
         DRY_RUN=true
         info "Dry run..."
+        ;;
+    s)
+        STATE="$OPTARG"
+        info "State: $STATE"
         ;;
     esac
 done
