@@ -16,3 +16,4 @@ base:
         - docker
         - mssql-cli
         - git
+        - yq
