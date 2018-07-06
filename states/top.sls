@@ -12,6 +12,7 @@ base:
         - telegram
     'roles:dev':
         - match: grain
+        - awslogs
         - docker
         - mssql-cli
         - git
