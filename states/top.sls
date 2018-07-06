@@ -8,7 +8,6 @@ base:
     'roles:ui':
         - match: grain
         - fish.ui
-        - keepass2
         - restview
         - telegram
     'roles:dev':
