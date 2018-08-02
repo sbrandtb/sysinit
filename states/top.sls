@@ -16,4 +16,5 @@ base:
         - docker
         - mssql-cli
         - git
+        - sources-dir
         - yq
