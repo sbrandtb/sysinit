@@ -14,6 +14,7 @@ base:
         - match: grain
         - awslogs
         - docker
+        - kubediff
         - mssql-cli
         - git
         - sources-dir
