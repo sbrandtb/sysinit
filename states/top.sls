@@ -12,6 +12,7 @@ base:
         - telegram
     'roles:dev':
         - match: grain
+        - awscli
         - awslogs
         - docker
         - kubediff
