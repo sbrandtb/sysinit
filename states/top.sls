@@ -12,6 +12,7 @@ base:
         - telegram
     'roles:dev':
         - match: grain
+        - athena-cli
         - awscli
         - awslogs
         - docker
